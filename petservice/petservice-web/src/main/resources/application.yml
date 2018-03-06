@@ -1,5 +1,6 @@
-spring.application.name: petservice
 spring:
+  application:
+    name: store
   cloud:
     zookeeper:
       connect-string: 172.16.2.182:2181,172.16.2.183:2181

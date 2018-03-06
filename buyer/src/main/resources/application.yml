@@ -1,6 +1,11 @@
 spring.application.name: buyer
 server.port: 8088
-#ribbon.eureka.enabled: false
+store:
+  ribbon:
+    listOfServers: 172.16.14.68:8080
+ribbon:
+  eureka:
+    enabled: false
 spring:
   cloud:
     zookeeper:

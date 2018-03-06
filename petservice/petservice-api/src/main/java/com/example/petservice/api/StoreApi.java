@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @description :
  * @date : 2018/3/5 15:53
  */
-@FeignClient(name = "store", fallback = StoreApiFallback.class)
+@FeignClient(value = "store", fallback = StoreApiFallback.class)
 public interface StoreApi {
 
     /**
