@@ -18,16 +18,16 @@ public class BuyService {
 
     @Autowired
     private StoreApi storeApi;
-//    @Autowired
-//    private StoreApiFallback storeApiFallback;
+    @Autowired
+    private StoreApiFallback storeApiFallback;
 
-//    @HystrixCommand(fallbackMethod = "buyFail")
+    @HystrixCommand(fallbackMethod = "buyFail")
     public Object buy() {
         return storeApi.sell();
     }
 
-//    public Object buyFail() {
-//        logger.info("buyFail buyFail -------------------------");
-//        return storeApiFallback.sell();
-//    }
+    public Object buyFail() {
+        logger.info("buyFail buyFail -------------------------");
+        return storeApiFallback.sell();
+    }
 }

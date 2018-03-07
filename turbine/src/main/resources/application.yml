@@ -1,0 +1,15 @@
+spring.application.name: turbine
+server.port: 8088
+InstanceDiscovery.impl: com.netflix.turbine.discovery.ConfigPropertyBasedDiscovery
+turbine:
+#  combineHostPort: false
+  appConfig: buyer,store
+  clusterNameExpression: "'default'"
+#  instanceUrlSuffix: :8088/hystrix.stream
+eureka:
+  client.register-with-eureka: false
+  client.fetch-registry: false
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 172.16.2.182:2181,172.16.2.183:2181
