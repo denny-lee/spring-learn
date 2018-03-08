@@ -1,0 +1,20 @@
+spring.application.name: buyer
+server.port: 8090
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 172.16.2.182:2181,172.16.2.183:2181
+zuul:
+  routes:
+    api-a:
+      path: /b/**
+      serviceId: buyer
+    api-b:
+      path: /store/**
+      serviceId: store
+#ribbon:
+#  eureka:
+#    enabled: false
+#buyer:
+#  ribbon:
+#    listOfServers: 127.0.0.1

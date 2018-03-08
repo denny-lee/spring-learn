@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd"
+       default-lazy-init="false">
+
+    <!-- disconf 核心配置 -->
+    <bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean" destroy-method="destroy">
+        <property name="scanPackage" value="com.example.disconf.config"/>
+    </bean>
+
+    <bean id="disconfMgrBean2" class="com.baidu.disconf.client.DisconfMgrBeanSecond" init-method="init"
+          destroy-method="destroy"></bean>
+
+
+    <!-- reload -->
+    <bean id="configproperties_reloadable"
+          class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="propertyConfigurerReloadYes"
+          class="com.baidu.disconf.client.addons.properties.ReloadingPropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="propertiesArray">
+            <list>
+                <ref bean="configproperties_reloadable"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

@@ -1,9 +1,11 @@
 package com.example.buyer.controller;
 
 import com.example.buyer.impl.BuyService;
-import com.example.petservice.api.StoreApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,12 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class BuyController {
+    Logger logger = LoggerFactory.getLogger(BuyController.class);
 
     @Autowired
     private BuyService buyService;
 
     @GetMapping("/buy")
-    public Object buy() {
+    public Object buy(@RequestParam("token") String token) {
+        logger.info("token : {}", token);
         return buyService.buy();
     }
 }

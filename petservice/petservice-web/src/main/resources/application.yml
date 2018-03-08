@@ -1,3 +1,7 @@
+logging:
+  level:
+#    root: WARN
+    org.springframework: DEBUG
 spring:
   application:
     name: store

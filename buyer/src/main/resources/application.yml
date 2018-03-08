@@ -1,5 +1,9 @@
 spring.application.name: buyer
 server.port: 8088
+logging:
+  level:
+#    root: WARN
+    com.example: DEBUG
 #store:
 #  ribbon:
 #    listOfServers: 172.16.14.68:8080
