@@ -1,7 +1,7 @@
 logging:
   level:
 #    root: WARN
-    org.springframework: DEBUG
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
 spring:
   application:
     name: store
@@ -9,3 +9,10 @@ spring:
     zookeeper:
       connect-string: 172.16.2.182:2181,172.16.2.183:2181
 #      connect-string: 172.16.31.177:2181
+  sleuth.sampler.percentage: 0.8
+  rabbitmq:
+    host: 172.16.2.182
+    port: 5672
+    username: liwtest
+    password: liwtest
+    virtual-host: /tubobo

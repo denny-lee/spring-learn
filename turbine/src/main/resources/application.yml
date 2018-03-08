@@ -1,5 +1,5 @@
 spring.application.name: turbine
-server.port: 8088
+server.port: 8080
 InstanceDiscovery.impl: com.netflix.turbine.discovery.ConfigPropertyBasedDiscovery
 turbine:
 #  combineHostPort: false
